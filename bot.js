@@ -5,6 +5,11 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
+bot.on('ready', () => {
+  bot.user.setGame('Tsukinose Tester')
+    
+});
+
 client.on('message', message => {
     if (message.content === 'ping') {
     	message.reply('pong');
