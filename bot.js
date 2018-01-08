@@ -5,8 +5,8 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-bot.on('ready', () => {
-  bot.user.setGame('Tsukinose Tester')
+client.on('ready', () => {
+  client.user.setGame('Tsukinose Tester')
     
 });
 
