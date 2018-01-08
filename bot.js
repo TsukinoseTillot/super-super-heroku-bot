@@ -3,7 +3,6 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log('I am ready!');
-      client.user.setGame('Test')
 });
 
 
@@ -15,3 +14,5 @@ client.on('message', message => {
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
+
+await client.change_status(game=discord.Game(name='K'))
