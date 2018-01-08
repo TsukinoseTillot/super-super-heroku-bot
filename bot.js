@@ -3,8 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log('I am ready!');
-    
-     client.user.setGame('Tsukinose Tester');
+      client.user.setGame('Tsukinose Tester');
 });
 
     
