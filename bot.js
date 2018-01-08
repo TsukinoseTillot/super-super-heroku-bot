@@ -14,4 +14,4 @@ client.on('message', message => {
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
 
-.setGame(?"Testing thing")
+.setGame(process.env.BOT_STATUS);
