@@ -15,7 +15,7 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === 'bye') {
-    	message.reply('Bye !!!!');
+    	message.channel.send('Bye !!!!');
   	}
 });
 
