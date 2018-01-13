@@ -92,5 +92,19 @@ client.on('message', message => {
     }
 });
 
+client.on("message", message => {
+
+  if(!message.content.startsWith(prefix)) return;
+
+ if(message.content.startsWith(prefix + "about")){
+    let embed = new Discord.RichEmbed()
+    .setAuthor("Tsukibot")
+    .setDescription("This bot is for personal use only.. not public user")
+    .setColor("3DB6F3");
+   message.channel.send(embed);
+ }
+});
+
+
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
