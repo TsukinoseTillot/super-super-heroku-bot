@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const swearWords = ["fuck", "asshole","shit", "bullshit"];
+const swearWords = ["fuck", "asshole","shit", "bullshit, faggot"];
 const prefix = "!";
 const newUsers = [];
 
