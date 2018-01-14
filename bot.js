@@ -63,6 +63,7 @@ client.on("message", message => {
     let embed = new Discord.RichEmbed()
     .setAuthor(message.author.username)
     .setDescription("Userinfo")
+    .setColor("AF5AFF")
     .addField("Full Username", `${message.author.username}#${message.author.discriminator}`)
     .addField("ID", message.author.id)
     .addField("Created At", message.author.createdAt);
