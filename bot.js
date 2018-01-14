@@ -14,9 +14,12 @@ client.on("ready", () => {
   console.log(`Ready to serve on ${client.guilds.size} servers, for ${client.users.size} users.`);
 });
 
-client.on("guildMemberAdd", (member) => {
-  console.log(`New User "${member.user.username}" has joined "${member.guild.name}"` );
-  member.guild.channels.get("welcome").send(`"${member.user.username}" has joined this server`);
+client.on("guildMemberAdd", member => {
+   member.guild.defaultChannel.send("Welcome " + member.user.username)
+});
+
+client.on("guildMemberRemove", member => {
+   member.guild.defaultChannel.send("Goodbye:" + member.user.username + ".See you next time")
 });
 
 
@@ -43,23 +46,6 @@ client.on("message", (message) => {
   if (message.content.startsWith(prefix + "avatar")) {
     message.channel.send(message.author.avatarURL);
   }
-});
-
-client.on("guildMemberAdd", (member) => {
-  const guild = member.guild;
-  if (!newUsers[guild.id]) newUsers[guild.id] = new Discord.Collection();
-  newUsers[guild.id].set(member.id, member.user);
-
-  if (newUsers[guild.id].size > 10) {
-    const userlist = newUsers[guild.id].map(u => u.toString()).join(" ");
-    guild.channels.get(guild.id).send("Welcome our new users!\n" + userlist);
-    newUsers[guild.id].clear();
-  }
-});
-
-client.on("guildMemberRemove", (member) => {
-  const guild = member.guild;
-  if (newUsers[guild.id].has(member.id)) newUsers.delete(member.id);
 });
 
 client.on("message", (message) => {  
