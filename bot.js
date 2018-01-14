@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({disableEveryone: true});
-const prefix = "!!"
+const prefix = "!"
 const swearWords = ["fuck", "asshole","shit", "bullshit", "motherfucker", "cocksucker", "cunt", "tits"];
 
 
