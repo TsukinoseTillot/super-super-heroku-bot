@@ -25,12 +25,13 @@ client.on("message", async message => {
   
   if(command === `${prefix}userinfo`) {
       let embed = new Discord.RichEmbed()
-    .setAuthor(message.author.username)
+    .setAuthor(`${message.author.username} info`)
     .setColor("AF5AFF")
-    .addField("Full Username", `${message.author.username}#${message.author.discriminator}`)
-    .addField("ID", message.author.id)
-    .addField("Created At", message.author.createdAt);
-    
+    .addField("Full Username", `${message.author.username}#${message.author.discriminator}`, true)
+    .addField("ID", message.author.id, true)
+    .addField("Created At", message.author.createdAt)
+    .setThumbnail(message.author.avatarURL)
+    .setFooter("This bot is personal use only");
   message.channel.send(embed);
   }
 
