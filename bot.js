@@ -82,6 +82,33 @@ client.on("message", (message) => {
      if (message.content.startsWith("owo")) {
     message.channel.send("What's this!");
   }
+  });
+  
+  client.on("message", (message) => {
+  if(message.author.bot) return;
+     if (message.content.startsWith("OwO")) {
+    message.channel.send("What's this!");
+  }
+  
+   });
+  client.on("message", (message) => {
+  if(message.author.bot) return;
+     if (message.content.startsWith("Owo")) {
+    message.channel.send("What's this!");
+  }
+  
+  client.on("message", (message) => {
+  if(message.author.bot) return;
+     if (message.content.startsWith("owO")) {
+    message.channel.send("What's this!");
+  }
+   });
+    
+    client.on("message", (message) => {
+  if(message.author.bot) return;
+     if (message.content.startsWith("OWO")) {
+    message.channel.send("What's this!");
+  }
   
   client.on("message", (message) => {  
 if( swearWords.some(word => message.content.includes(word)) ) {
