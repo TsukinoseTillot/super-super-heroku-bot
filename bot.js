@@ -109,7 +109,8 @@ client.on("message", (message) => {
      if (message.content.startsWith("OWO")) {
     message.channel.send("What's this!");
   }
-  
+
+    });
   client.on("message", (message) => {  
 if( swearWords.some(word => message.content.includes(word)) ) {
   message.reply("Oh no you said a bad word!!!");
