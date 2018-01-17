@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client({disableEveryone: true});
 const prefix = "!"
 
+process.setMaxListeners(0);
 
 client.on("ready", async () => {
   console.log("yes im ready!");
