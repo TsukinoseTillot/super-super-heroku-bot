@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({disableEveryone: true});
 const prefix = "!"
-const swearWords = ["fuck", "asshole","shit", "bullshit", "motherfucker", "cocksucker", "cunt", "tits"];
 
 
 client.on("ready", async () => {
@@ -111,13 +110,6 @@ client.on("message", (message) => {
   }
 
     });
-  client.on("message", (message) => {  
-if( swearWords.some(word => message.content.includes(word)) ) {
-  message.reply("Oh no you said a bad word!!!");
-  message.delete();
-  }
-});
-
   
   
 });
