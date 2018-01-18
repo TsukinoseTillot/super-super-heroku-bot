@@ -119,6 +119,19 @@ client.on("message", async message => {
     .setFooter("This bot is personal use only");
   message.channel.send(embed);
   }
+ 
+    if(message.content.startsWith(prefix + "serverinfo")){
+    let embed = new Discord.RichEmbed()
+    .setAuthor("Server info")
+    .setColor("3DB6F3")
+    .addField("Member count + bots" , message.guild.memberCount, true)
+    .addField("Name server" , message.guild.name, true)
+    .addField("created at" , message.guild.createdAt)
+    .addField("Default role" , message.guild.defaultRole)
+    .addField("OwnerID on this channel" , message.client.ownerID)
+    .setThumbnail(message.guild.iconURL);
+   message.channel.send(embed);
+ }
 
 });
 
