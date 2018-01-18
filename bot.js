@@ -115,6 +115,7 @@ client.on("message", async message => {
     .addField("Full Username", `${message.author.username}#${message.author.discriminator}`, true)
     .addField("ID", message.author.id, true)
     .addField("Created At", message.author.createdAt)
+    .addField("Joined this server at" , message.guild.joinedAt)
     .setThumbnail(message.author.avatarURL)
     .setFooter("This bot is personal use only");
   message.channel.send(embed);
