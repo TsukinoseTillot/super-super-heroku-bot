@@ -129,7 +129,7 @@ client.on("message", async message => {
     .addField("Name server" , message.guild.name, true)
     .addField("created at" , message.guild.createdAt)
     .addField("Default role" , message.guild.defaultRole)
-    .addField("Owner on this channel" , message.guild.owner)
+    .addField("Owner on this server" , message.guild.owner)
     .setThumbnail(message.guild.iconURL);
    message.channel.send(embed);
  }
