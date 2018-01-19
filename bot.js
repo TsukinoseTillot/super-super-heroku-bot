@@ -9,7 +9,7 @@ client.on("ready", () => {
  
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
 
-  client.user.setActivity(`on ${client.guilds.size} servers`);
+  client.user.setActivity(`on ${client.guilds.size} servers, and ${client.users.size} users`);
 });
 
 client.on("guildCreate", guild => {
