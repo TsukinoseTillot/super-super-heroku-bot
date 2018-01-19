@@ -135,14 +135,7 @@ client.on("message", async message => {
    message.channel.send(embed);
  }
 
-});
-
-client.on("message", (message) => {
-     if (message.content.startsWith("owo")) {
-    message.channel.send("What's this!");
-  }
-  });
-if (message.content.startsWith(prefix + 'weather')) {
+ if (message.content.startsWith(prefix + 'weather')) {
 
         	let args = message.content.split(" ").slice(1);
         weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) { // Make sure you get that args.join part, since it adds everything after weather.
@@ -175,6 +168,14 @@ if (message.content.startsWith(prefix + 'weather')) {
                 message.channel.send({embed});
         });
     }
+ 
+});
+
+client.on("message", (message) => {
+     if (message.content.startsWith("owo")) {
+    message.channel.send("What's this!");
+  }
+  });
 
 
 
