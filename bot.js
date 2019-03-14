@@ -25,17 +25,11 @@ client.on("message", async message => {
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
   
-//  if(command === "say") {
-//    const sayMessage = args.join(" ");
-//    message.delete().catch(O_o=>{}); 
-//    message.channel.send(sayMessage);
- 
- {
     if(command === "saychat") {
     const sayMessage = args.join(" ");
     var generalChannel = client.channels.get("527442763223007232");
-    generalChannel.send(sayMessage);
-    }
+	generalChannel.send(sayMessage);
+  }
   
   if(command === "kick") {
     if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)) )
