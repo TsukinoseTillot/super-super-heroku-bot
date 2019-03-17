@@ -9,7 +9,7 @@ client.on("ready", () => {
  
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
 
-  client.user.setActivity(`Watching ${client.users.size} and i don't know`);
+  client.user.setActivity(`Watching ${client.users.size} users and do nothing`);
 });
 
 
@@ -32,7 +32,7 @@ client.on("message", async message => {
   }
   
   if(command === "kick") {
-    if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Admin lol", "Mod o/"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     let member = message.mentions.members.first();
     if(!member)
@@ -53,7 +53,7 @@ client.on("message", async message => {
   
   if(command === "ban") {
 
-    if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
     let member = message.mentions.members.first();
@@ -72,6 +72,8 @@ client.on("message", async message => {
   }
   
   if(command === "purge") {
+  	if(!message.member.roles.some(r=>["Admin lol", "Moderator"].includes(r.name)))
+  		return message.reply("Sorry, you don't have permission to use this lol");
 
     const deleteCount = parseInt(args[0], 10);
     
@@ -84,6 +86,13 @@ client.on("message", async message => {
       .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
 }
 
+    if(command === "sayannouncement") {
+    	    if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
+      		return message.reply("Sorry, only owner can use this!");
+	const sayMessage = args.join(" ");
+   	var generalChannel = client.channels.get("497404354756739091");
+		generalChannel.send(sayMessage);
+  }
 
 });
 const prefix = "!";
