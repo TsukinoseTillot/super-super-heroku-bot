@@ -131,7 +131,13 @@ client.on("message", async message => {
     .setThumbnail(message.guild.iconURL);
    message.channel.send(embed);
  }
-
+ 	if(message.content.startsWith(prefix + "avatar")){
+ 	let embed = new Discord.RichEmbed()
+ 	.setAuthor(message.author.username)
+ 	.setImage(message.author.avatarURL)
+ 	message.channel.send(embed);
+}
+	
  if (message.content.startsWith(prefix + 'weather')) {
 
         	let args = message.content.split(" ").slice(1);
