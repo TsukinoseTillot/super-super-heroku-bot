@@ -5,6 +5,12 @@ const config = require("./config.json");
 
 const weather = require('weather-js');
 
+const osu = require('node-osu');
+const api = new osu.Api(process.env.OSU_API , {
+    notFoundAsError: true,
+    completeScores: false 
+})
+
 client.on("ready", () => {
  
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
@@ -94,6 +100,32 @@ client.on("message", async message => {
 		generalChannel.send(sayMessage);
   }
 
+  if(command === "osu") {
+    if (!args[0]) return message.channel.send('Please, provide a valid user\'s nickname! (osu!)')
+  const username = args.join(" ");
+  api.getUser({u: username}).then(user => {
+    const embed = new Discord.RichEmbed()
+    .setTitle(user.name, 'info')
+    .setDescription(`Information`)
+    .setThumbnail(`http://s.ppy.sh/a/${user.id}}`)
+    .setColor("#D0436A")
+    .addField('Nickname', user.name, true)
+    .addField('PP', Math.round(user.pp.raw), true)
+    .addField('Rank', user.pp.rank, true)
+    .addField('Level', Math.round(user.level), true)
+    .addBlankField()
+    .addField('Country', user.country, true)
+    .addField('Country Rank', user.pp.countryRank, true)
+    .addField('Playcount', user.counts.plays, true)
+    .addField('Accuracy', `${user.accuracyFormatted}`, true)
+    .setFooter('Requested By ' + message.author.tag, message.author.avatarURL)
+    message.channel.send(embed)
+    
+  })
+
+  }
+
+	
 });
 const prefix = "!";
 client.on("message", async message => {
