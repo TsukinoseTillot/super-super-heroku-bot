@@ -40,7 +40,7 @@ client.on("message", async message => {
   }
   
   if(command === "kick") {
-    if(!message.member.roles.some(r=>["Admin lol", "Mod o/"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["No Admin lol", "Mod o/"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     let member = message.mentions.members.first();
     if(!member)
@@ -61,7 +61,7 @@ client.on("message", async message => {
   
   if(command === "ban") {
 
-    if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
     let member = message.mentions.members.first();
@@ -80,7 +80,7 @@ client.on("message", async message => {
   }
   
   if(command === "purge") {
-  	if(!message.member.roles.some(r=>["Admin lol", "Moderator"].includes(r.name)))
+  	if(!message.member.roles.some(r=>["No Admin lol", "Moderator"].includes(r.name)))
   		return message.reply("Sorry, you don't have permission to use this lol");
 
     const deleteCount = parseInt(args[0], 10);
@@ -95,7 +95,7 @@ client.on("message", async message => {
 }
 
     if(command === "sayannouncement") {
-    	    if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
+    	    if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
       		return message.reply("Sorry, only owner can use this!");
 	const sayMessage = args.join(" ");
 	    	if(!sayMessage)
@@ -105,7 +105,7 @@ client.on("message", async message => {
     }
 
     if (command == "chatpicture") {
-		if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
+		if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
 		return message.reply("Sorry, only admin can use this command o/");
 	const picture = args.join(" ");
 		if(!picture)
@@ -115,7 +115,7 @@ client.on("message", async message => {
 	generalChannel.send(attachment);
     }
 	    if(command === "saychat") {
-    	    if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
+    	    if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
       		return message.reply("Sorry, only owner can use this!");
 	const sayMessage = args.join(" ");
 	    	if(!sayMessage)
