@@ -5,6 +5,8 @@ const config = require("./config.json");
 
 const weather = require('weather-js');
 
+const { Client, Attachment } = require('discord.js');
+
 const osu = require('node-osu');
 const api = new osu.Api(process.env.OSU_API , {
     notFoundAsError: true,
@@ -99,8 +101,19 @@ client.on("message", async message => {
 	    	if(!sayMessage)
 			return message.reply(`Please put any text here`)
    	var generalChannel = client.channels.get("497404354756739091");
-		generalChannel.send(sayMessage);
+        generalChannel.send(sayMessage);
+    }
 
+    if (command == "chatpicture") {
+		if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
+		return message.reply("Sorry, only admin can use this command o/");
+	const picture = args.join(" ");
+		if(!picture)
+		return message.reply(`Please put your link or file to proceed`)
+	var generalChannel = client.channels.get("527442763223007232");
+	const attachment = new Attachment(picture);
+	generalChannel.send(attachment);
+    }
 	    if(command === "saychat") {
     	    if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
       		return message.reply("Sorry, only owner can use this!");
