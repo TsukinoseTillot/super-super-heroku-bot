@@ -129,8 +129,8 @@ client.on("message", async message => {
   const username = args.join(" ");
   api.getUser({u: username}).then(user => {
     const embed = new Discord.RichEmbed()
-    .setTitle(user.name, 'info')
-    .setDescription(`Information`)
+    .setTitle(`osu! status`)
+    .setDescription(`[${user.name}](http://osu.ppy.sh/users/${user.id})`)
     .setThumbnail(`http://s.ppy.sh/a/${user.id}}`)
     .setColor("#D0436A")
     .addField('Nickname', user.name, true)
