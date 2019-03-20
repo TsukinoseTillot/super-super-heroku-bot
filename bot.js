@@ -231,12 +231,6 @@ client.on("message", async message => {
  
 });
 
-client.on("message", (message) => {
-     if (message.content.startsWith("owo")) {
-    message.channel.send("What's this!");
-  }
-  });
-
 
 
 client.login(process.env.BOT_TOKEN);
