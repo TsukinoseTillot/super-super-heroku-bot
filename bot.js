@@ -3,6 +3,8 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 
+const { Client, Attachment } = require('discord.js');
+
 const weather = require('weather-js');
 
 const osu = require('node-osu');
@@ -96,9 +98,31 @@ client.on("message", async message => {
     	    if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
       		return message.reply("Sorry, only owner can use this!");
 	const sayMessage = args.join(" ");
+	    	if(!sayMessage)
+			return message.reply(`Please put any text here`)
    	var generalChannel = client.channels.get("497404354756739091");
 		generalChannel.send(sayMessage);
-  }
+
+	    if(command === "saychat") {
+    	    if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
+      		return message.reply("Sorry, only owner can use this!");
+	const sayMessage = args.join(" ");
+	    	if(!sayMessage)
+			return message.reply(`Please put any text here`)
+   	var generalChannel = client.channels.get("527442763223007232");
+		generalChannel.send(sayMessage);
+		    
+    }
+	if (command == "chatpicture") {
+		if(!message.member.roles.some(r=>["Admin lol"].includes(r.name)) )
+		return message.reply("Sorry, only admin can use this command o/");
+	const picture = args.join(" ");
+		if(!picture)
+		return message.reply(`Please put your link or file to proceed`)
+	var generalChannel = client.channels.get("527442763223007232");
+	const attachment = new Attachment(picture);
+	generalChannel.send(attachment);
+    }
 
   if(command === "osu") {
     if (!args[0]) return message.channel.send('Please, provide a valid user\'s nickname! (osu!)')
