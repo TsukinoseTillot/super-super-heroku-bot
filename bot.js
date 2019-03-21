@@ -5,7 +5,7 @@ const config = require("./config.json");
 
 const weather = require('weather-js');
 
-const { Client, Attachment } = require('discord.js');
+// const { Client, Attachment } = require('discord.js');
 
 const osu = require('node-osu');
 const api = new osu.Api(process.env.OSU_API , {
@@ -109,16 +109,16 @@ client.on("message", async message => {
         generalChannel.send(sayMessage);
     }
 
-    if (command == "chatpicture") {
-		if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
-		return message.reply("Sorry, only admin can use this command o/");
-	const picture = args.join(" ");
-		if(!picture)
-		return message.reply(`Please put your link or file to proceed`)
-	var generalChannel = client.channels.get("527442763223007232");
-	const attachment = new Attachment(picture);
-	generalChannel.send(attachment);
-    }
+//   if (command == "chatpicture") {
+//		if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
+//		return message.reply("Sorry, only admin can use this command o/");
+//	const picture = args.join(" ");
+//		if(!picture)
+//		return message.reply(`Please put your link or file to proceed`)
+//	var generalChannel = client.channels.get("527442763223007232");
+//	const attachment = new Attachment(picture);
+//	generalChannel.send(attachment);
+//    }
 
   if(command === "osu") {
     if (!args[0]) return message.channel.send('Please, provide a valid user\'s nickname! (osu!)')
