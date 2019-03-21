@@ -35,7 +35,7 @@ client.on("message", async message => {
   
       if(command === "saychat") {
     const sayMessage = args.join(" ");
-    var generalChannel = client.channels.get("527442763223007232");
+    var generalChannel = client.channels.get("558215774666227713");
 	generalChannel.send(sayMessage);
   }
 	
