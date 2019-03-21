@@ -33,7 +33,7 @@ client.on("message", async message => {
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   }
   
-      if(command === "saychat") {
+      if(command == "saychat") {
     const sayMessage = args.join(" ");
     var generalChannel = client.channels.get("558215774666227713");
 	generalChannel.send(sayMessage);
