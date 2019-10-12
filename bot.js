@@ -91,7 +91,7 @@ client.on("message", async message => {
 }
 
     if(command === "sayannouncement") {
-    	    if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
+    	    if(!message.member.roles.some(r=>["deleted role"].includes(r.name)) )
       		return message.reply("Sorry, only owner can use this!");
 	const sayMessage = args.join(" ");
 	    	if(!sayMessage)
