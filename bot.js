@@ -17,7 +17,7 @@ client.on("ready", () => {
  
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
 
-  client.user.setActivity(`Don't ask what happened`);
+  client.user.setActivity(`Reboot code`);
 });
 
 
@@ -91,7 +91,7 @@ client.on("message", async message => {
 }
 
     if(command === "sayannouncement") {
-    	    if(!message.member.roles.some(r=>["deleted role"].includes(r.name)) )
+    	    if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
       		return message.reply("Sorry, only owner can use this!");
 	const sayMessage = args.join(" ");
 	    	if(!sayMessage)
