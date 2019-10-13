@@ -17,7 +17,7 @@ client.on("ready", () => {
  
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
 
-  client.user.setActivity(`Reboot code`);
+  client.user.setActivity(`Should be done now`);
 });
 
 
