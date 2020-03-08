@@ -34,6 +34,9 @@ client.on("message", async message => {
   }
  
 
+if(command === "help" {
+	return message.reply("Haha sorry, there is no help list here because this code is abandoned and incomplete");
+}
 	
   if(command === "kick") {
     if(!message.member.roles.some(r=>["No Admin lol", "Mod o/"].includes(r.name)) )
