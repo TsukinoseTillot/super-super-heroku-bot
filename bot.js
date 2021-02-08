@@ -39,7 +39,7 @@ if(command === "help") {
 }
 	
   if(command === "kick") {
-    if(!message.member.roles.some(r=>["No Admin lol", "Mod o/"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["tsukinose", "Mod o/"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     let member = message.mentions.members.first();
     if(!member)
@@ -60,7 +60,7 @@ if(command === "help") {
   
   if(command === "ban") {
 
-    if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
+    if(!message.member.roles.some(r=>["tsukinose"].includes(r.name)) )
       return message.reply("Sorry, you don't have permissions to use this!");
     
     let member = message.mentions.members.first();
@@ -79,7 +79,7 @@ if(command === "help") {
   }
   
   if(command === "purge") {
-  	if(!message.member.roles.some(r=>["No Admin lol", "Moderator"].includes(r.name)))
+  	if(!message.member.roles.some(r=>["tsukinose", "Moderator"].includes(r.name)))
   		return message.reply("Sorry, you don't have permission to use this lol");
 
     const deleteCount = parseInt(args[0], 10);
@@ -94,7 +94,7 @@ if(command === "help") {
 }
 
     if(command === "sayannouncement") {
-    	    if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
+    	    if(!message.member.roles.some(r=>["tsukinose"].includes(r.name)) )
       		return message.reply("Sorry, only owner can use this!");
 	const sayMessage = args.join(" ");
 	    	if(!sayMessage)
@@ -104,7 +104,7 @@ if(command === "help") {
     }
 
    if (command == "chatpicture") {
-		if(!message.member.roles.some(r=>["No Admin lol"].includes(r.name)) )
+		if(!message.member.roles.some(r=>["tsukinose"].includes(r.name)) )
 		return message.reply("Sorry, only admin can use this command o/");
 	const picture = args.join(" ");
 		if(!picture)
@@ -187,33 +187,32 @@ client.on("message", async message => {
  if (message.content.startsWith(prefix + 'weather')) {
 
         	let args = message.content.split(" ").slice(1);
-        weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) { // Make sure you get that args.join part, since it adds everything after weather.
+        weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) { 
             if (err) message.channel.send(err);
 
-            // We also want them to know if a place they enter is invalid.
             if (result.length === 0) {
-                message.channel.send('**Please enter a valid location.**') // This tells them in chat that the place they entered is invalid.
-                return; // This exits the code so the rest doesn't run.
+                message.channel.send('**Please enter a valid location.**') 
+                return; 
             }
 
             // Variables
-            var current = result[0].current; // This is a variable for the current part of the JSON output
-            var location = result[0].location; // This is a variable for the location part of the JSON output
+            var current = result[0].current; 
+            var location = result[0].location;
 
             // Let's use an embed for this.
             const embed = new Discord.RichEmbed()
-                .setDescription(`**${current.skytext}**`) // This is the text of what the sky looks like, remember you can find all of this on the weather-js npm page.
-                .setAuthor(`Weather for ${current.observationpoint}`) // This shows the current location of the weather.
-                .setThumbnail(current.imageUrl) // This sets the thumbnail of the embed
-                .setColor(0x00AE86) // This sets the color of the embed, you can set this to anything if you look put a hex color picker, just make sure you put 0x infront of the hex
-                .addField('Timezone',`UTC${location.timezone}`, true) // This is the first field, it shows the timezone, and the true means `inline`, you can read more about this on the official discord.js documentation
-                .addField('Degree Type',location.degreetype, true)// This is the field that shows the degree type, and is inline
+                .setDescription(`**${current.skytext}**`)
+                .setAuthor(`Weather for ${current.observationpoint}`) 
+                .setThumbnail(current.imageUrl)
+                .setColor(0x00AE86) 
+                .addField('Timezone',`UTC${location.timezone}`, true)
+                .addField('Degree Type',location.degreetype, true)
                 .addField('Temperature',`${current.temperature} Degrees`, true)
                 .addField('Feels Like', `${current.feelslike} Degrees`, true)
                 .addField('Winds',current.winddisplay, true)
                 .addField('Humidity', `${current.humidity}%`, true)
 
-                // Now, let's display it when called
+  
                 message.channel.send({embed});
         });
     }
